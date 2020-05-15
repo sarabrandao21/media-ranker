@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     redirect_to root_path
     return
   end
-  
+  def log_out #TODO
+  end 
   def current
     @current_user = User.find_by(id: session[:user_id])
     unless @current_user
