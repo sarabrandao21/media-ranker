@@ -21,7 +21,14 @@
           <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path %></li>
 
         </ul>
-      </nav></header>
+      </nav>
+      <section class="flash"> 
+        <% flash.each do |name, message|%> 
+         <div class="<%=name%>"> <%= message %> </div>
+        <%end%>
+      </section>
+      </header>
+
    </body>   
     </header>
     <header>

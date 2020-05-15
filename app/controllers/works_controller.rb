@@ -24,7 +24,8 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@work.category}#{@work.title}"
       return
     else 
-      render :new, status: :bad_request       
+      flash.now[:error] = "NOT successfully created #{@work.category}#{@work.title}"
+      render :new, status: :bad_request 
       return 
     end 
   end 
@@ -45,8 +46,10 @@ class WorksController < ApplicationController
       return
     elsif @work.update(work_params)
       redirect_to work_path(@work.id) 
+      flash[:success] = "Successfully updated #{@work.category}#{@work.title}"
       return
     else
+      flash.now[:error] = "NOT successfully updated #{@work.category}#{@work.title}"
       render :edit
       return
     end
