@@ -1,3 +1,13 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.app-header__header {
+  max-width: 100%;
+  background-color: orange;
+  margin-bottom: 0.5rem;
+  padding: 2rem 1rem 0.5rem 1rem;
+}
+
+.app-header__site-nav-container .app-header__nav_item {
+  margin-right: 2rem;
+}

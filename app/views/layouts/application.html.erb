@@ -10,19 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    
     <header class="app-header__header">
       <h1>
        Media Ranker |
         <small>Ranking the Best of Everything</small></h1>
-      <nav class="app-header__nav">
+         <nav class="app-header__nav">
         <ul class="nav app-header__site-nav-container">
           <li class="nav-item app-header__nav_item"><%= link_to "Home", root_path%></li>
           <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path %></li>
 
         </ul>
-      </nav>
+      </nav></header>
+   </body>   
     </header>
+    <header>
+    <body>
+     
+    <%= yield %>
   </body>
 </html>
 
