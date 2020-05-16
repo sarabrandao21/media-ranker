@@ -18,7 +18,7 @@ class WorksController < ApplicationController
   end 
   
   def create 
-    @work = Work.new(work_params)
+    @work = Work.new(work_params) #TODO publication date does not work 
     if @work.save
       redirect_to works_path
       flash[:success] = "Successfully created #{@work.category}#{@work.title}"
