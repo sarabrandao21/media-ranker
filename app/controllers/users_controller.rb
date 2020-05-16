@@ -3,7 +3,13 @@ class UsersController < ApplicationController
     @users = User.all
   end 
   
-  def show #TODO user summary: username, joined site (date), list of votes, voted on date 
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    if @user.nil?
+      head :not_found 
+      return
+    end 
   end 
   
   def login_form
@@ -12,6 +18,7 @@ class UsersController < ApplicationController
   
   def login
     username = params[:user][:username]
+    
     user = User.find_by(username: username)
     if user
       session[:user_id] = user.id
@@ -26,20 +33,32 @@ class UsersController < ApplicationController
     return
   end
   def logout 
-    session[:user_id] = nil 
-    redirect_to root_pathreturn
-    return
-  end 
-  def current
-    @current_user = User.find_by(id: session[:user_id])
-    unless @current_user
-      flash[:error] = "You must be logged in to see this page"
+    if session[:user_id] 
+      user = User.find_by(id: session[:user_id])
+      unless user.nil? 
+        session[:user_id] = nil
+        flash[:notice] = "Goodbye #{user.username}"
+      else
+        session[:user_id] = nil 
+        flash[:notice] = "Error unknown user"
+      end
+    else  
+      flash[:error] = "You must be logged in to logout"
       redirect_to root_path
       return
-    end
+    end 
+  end 
+  
+  def current
+    @user = User.find_by(id: session[:user_id])
+    if @user.nil? 
+      flash[:error] = "You must be logged in to see this page"
+      redirect_to root_path
+      return 
+    end 
   end
-  
-  
-  
-  
 end
+
+
+
+
