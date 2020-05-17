@@ -22,7 +22,7 @@
       <% @works.each do |work|  %>
         <% if work.category == category %>
         <tr>
-        <td>0</td>
+        <td><%=work.votes.length%></td>
           <td>
             <%= link_to work.title, work_path(work) %>
           </td>

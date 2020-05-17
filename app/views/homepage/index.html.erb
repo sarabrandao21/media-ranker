@@ -1,13 +1,17 @@
-<%types = ["Top Movies", "Top Books", "Top Albums"]%>
+<%types = {
+  "Top Movies" =>  "movie", 
+  "Top Books" => "book", 
+  "Top Albums" => "album"
+  }%>
 
 <main>
   <section class="spotlight">
     <h2 class="spotlight__header">
       <span class="spotlight__header--prefix">
-      Media Spotlight: <%= "highest votes"%>
+      Media Spotlight: <%= %>
     </h2>
   </section>
-  <% types.each do |type|%>
+  <% types.each do |title, type|%>
   <hr class="root__hr">
   <section class="top-ten__container">
     <section class="top-ten__header">
@@ -18,7 +22,7 @@
           <li class="list-group-item"> </li>
           <h4>
           <small class="top-ten__creator">
-            <p><%="#{} votes"%></p>
+            <p><%=Work.first.category%></p>
           </small>
            </h4>
         </ul>
