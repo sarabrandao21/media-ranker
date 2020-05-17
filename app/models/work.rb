@@ -4,13 +4,13 @@ class Work < ApplicationRecord
   #each category 
   #votes.length
   
-  def self.spotlight
-    all_votes = Work.all.map do |work|
-      work.votes
+  def self.spotlight(type) 
+    sorted = Work.all.sort_by { |work| -work.votes.length }
+    list_work = Work.all.map do |work|
+      if work.category == type     
+      end 
     end 
-    
-    return all_votes.sort_by { |vote| -vote.length }
-    
+    return list_work
   end 
   
   def create_new_vote(user_id)  
