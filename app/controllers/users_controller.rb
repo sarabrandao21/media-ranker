@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end 
   
   def show
-    user_id = params[:id]
+    user_id = session[:user_id]
     @user = User.find_by(id: user_id)
     if @user.nil?
       head :not_found 
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     end 
   end 
   
-  def current
+  def current 
     @user = User.find_by(id: session[:user_id])
     if @user.nil? 
       flash[:error] = "You must be logged in to see this page"
