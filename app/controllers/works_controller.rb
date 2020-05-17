@@ -18,7 +18,7 @@ class WorksController < ApplicationController
   end 
   
   def create 
-    @work = Work.new(work_params) #TODO publication date does not work 
+    @work = Work.new(work_params)  
     if @work.save
       redirect_to works_path
       flash[:success] = "Successfully created #{@work.category}#{@work.title}"
@@ -68,6 +68,13 @@ class WorksController < ApplicationController
     
     redirect_to works_path
     return
+  end 
+  
+  def upvote
+    work_id = params[:id]
+    @work =  Work.find_by(id: work_id) 
+    
+    @work.create_new_vote(session[:user_id])
   end 
   
   def work_params

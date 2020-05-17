@@ -32,7 +32,7 @@
             <%=work.publication_year%>
           </td>
           <td>
-            Upvote
+            <%=link_to "upvote", upvote_path(work.id), method: :post%>
           </td>
         </tr>
         <%end%>
