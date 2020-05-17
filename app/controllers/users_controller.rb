@@ -37,14 +37,16 @@ class UsersController < ApplicationController
       user = User.find_by(id: session[:user_id])
       unless user.nil? 
         session[:user_id] = nil
+        redirect_to root_path
         flash[:notice] = "Goodbye #{user.username}"
       else
         session[:user_id] = nil 
         flash[:notice] = "Error unknown user"
       end
     else  
-      flash[:error] = "You must be logged in to logout"
       redirect_to root_path
+      flash[:error] = "You must be logged in to logout"
+      
       return
     end 
   end 
