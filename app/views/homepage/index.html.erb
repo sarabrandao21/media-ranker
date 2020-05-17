@@ -7,28 +7,37 @@
 <main>
   <section class="spotlight">
     <h2 class="spotlight__header">
-      <span class="spotlight__header--prefix">
       Media Spotlight: <%= %>
     </h2>
   </section>
   <% types.each do |title, type|%>
-  <hr class="root__hr">
-  <section class="top-ten__container">
-    <section class="top-ten__header">
-      <h2 class="top-ten__header">
-        <%= type %>
+    <hr class="root__hr">
+    <section class="top-ten__container">
+      <section class="top-ten__header">
+        <h2 class="top-ten__header">
+          <%= type %>
+        </h2>
         <ul class="list-group top-ten__list">
-        <%= %>
-          <li class="list-group-item"> </li>
+          <li class="list-group-item"> 
           <h4>
-          <small class="top-ten__creator">
-            <p><%=Work.first.category%></p>
-          </small>
-           </h4>
+          <%list_work = Work.spotlight(type)%>
+          <% if list_work.empty?%>
+            <p><%="There is no media for #{type}"%></p>
+          <%else%>
+            <%list_work.each do |work|%>
+              <%= work.title%>
+            <small>
+              <%=work.creator%>
+            </small>
+            <p><%=work.votes.length%></p>
+            <%end%>
+          <%end%> 
+          </h4>
+
+          </li>
         </ul>
-      </h2>
+      </section>
     </section>
   <%end%>
 
-  </section>
 </main>
