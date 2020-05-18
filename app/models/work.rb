@@ -1,8 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes 
   validates :title, presence: true, uniqueness: true 
-  #each category 
-  #votes.length
+  
   
   def self.spotlight(type) 
     sorted = Work.all.sort_by { |work| -work.votes.length }

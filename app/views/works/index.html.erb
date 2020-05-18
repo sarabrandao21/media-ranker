@@ -19,7 +19,8 @@
         </tr>
       </thead>
       <tbody>
-      <% @works.each do |work|  %>
+      <%sorted = @works.sort_by { |work| -work.votes.length }%>
+      <% sorted.each do |work|  %>
         <% if work.category == category %>
         <tr>
         <td><%=work.votes.length%></td>

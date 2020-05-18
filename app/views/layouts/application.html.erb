@@ -27,18 +27,17 @@
           <%end %>
         </ul>
       </nav>
+      </header>
+    
+   </body>   
+    </header>
+    <header>
+    <body>
       <section class="flash"> 
         <% flash.each do |name, message|%> 
          <div class="<%=name%>"> <%= message %> </div>
         <%end%>
       </section>
-      </header>
-
-   </body>   
-    </header>
-    <header>
-    <body>
-     
     <%= yield %>
   </body>
 </html>
