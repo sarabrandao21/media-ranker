@@ -8,14 +8,14 @@
 <main>
   <section class="spotlight">
     <h2 class="spotlight__header">
-    <%if highest_voted.nil?%>
-      Media Spotlight: There is no media in this rank
-    <%else%>
-      Media Spotlight: <%= highest_voted.title %>
-      <small><%=highest_voted.votes.length%> votes</small>
-      <p>
-      <small><%=highest_voted.description%></small>
-      </p>
+      <%if highest_voted.nil?%>
+        Media Spotlight: There is no media in this rank
+      <%else%>
+        Media Spotlight: <%= link_to highest_voted.title, work_path(highest_voted.id)%>
+        <small><%=highest_voted.votes.length%> votes</small>
+        <p>
+        <small><%=highest_voted.description%></small>
+        </p>
       <%end%>
     </h2>
   </section>
@@ -34,7 +34,7 @@
             <p><%="There is no media for #{type}"%></p>
           <%else%>
             <%list_work.each do |work|%>
-              <%= work.title%>
+              <%= link_to work.title, work_path(work.id)%>
             <small>
               <%=work.creator%>
             </small>
@@ -48,5 +48,4 @@
       </section>
     </section>
   <%end%>
-
 </main>
