@@ -43,6 +43,8 @@ describe Work do
     end 
     it "return a list of works sorted by highest votes" do 
     end 
+    it "should return a list with works of the given category" do 
+    end 
   end 
   describe "Create new vote" do 
     it "vote can be created" do 

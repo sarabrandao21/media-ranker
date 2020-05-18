@@ -1,0 +1,76 @@
+work_one:
+  category: album
+  title: Blue Breaker
+  creator: Dr. Sarai Langosh
+  publication_year: 1949
+  description: Et et expedita non aut quo.
+
+work_two:
+  category: album
+  title: Joe Treat
+  creator: Blaise Lesch
+  publication_year: 1968
+  description: Voluptatem adipisci qui velit.
+
+work_three:
+  category: album
+  title: Kreb-Full-o Been
+  creator: Ms. Trevion Buckridge
+  publication_year: 2016
+  description: Vero consectetur delectus consequatur id aut accusantium unde excepturi.
+
+work_four:
+  category: album
+  title: Wake-up Pie
+  creator: Timmy Streich I
+  publication_year: 1919
+  description: Voluptatem consequatur qui consectetur nisi officiis culpa.
+
+work_five:
+  category: album
+  title: Major Cup
+  creator: Jayde Bartoletti
+  publication_year: 1944
+  description: Quis recusandae cum est facere consequatur minima magni et.
+
+work_six:
+  category: album
+  title: Summer Select
+  creator: Ms. Gwendolyn Ortiz
+  publication_year: 1946
+  description: Et molestiae eos nam odit aut sed.
+
+work_seven:
+  category: album
+  title: Holiday Choice
+  creator: Alexandria Lehner
+  publication_year: 1940
+  description: Excepturi voluptas ut voluptatum.
+
+work_eight:
+  category: album
+  title: Postmodern Blend
+  creator: Meredith Brekke
+  publication_year: 1970
+  description: Dolorem fugit accusantium qui.
+
+work_nine:
+  category: album
+  title: Green Forrester
+  creator: Raquel Hirthe
+  publication_year: 1933
+  description: Omnis qui quia odio.
+
+work_ten:
+  category: album
+  title: Winter Mug
+  creator: Tia Weissnat II
+  publication_year: 1990
+  description: Laboriosam autem iusto quae sed voluptate et.
+
+work_eleven:
+  category: album
+  title: Red Pie
+  creator: Davon Kub
+  publication_year: 1900
+  description: Id dolorem qui laborum quia.
