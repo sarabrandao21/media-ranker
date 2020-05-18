@@ -10,7 +10,7 @@
    <%= link_to "See all users", users_path%>
   </section>
   <section>
-    <h3><%=@work.votes.length%> Votes for this Album</h3>
+    <h3><%=@user.votes.length%> Votes for this Album</h3>
     <table>
       <thead>
         <tr>
@@ -27,8 +27,7 @@
             <%work = Work.find_by(id: vote.work_id)%>
             <td><%= work.title%> </td>
             <td><%= work.creator%></td>
-            <td><%= work.published_year%></td>
-            <td><%= work.published_year%></td>
+            <td><%= work.publication_year%></td>
             <td><%= work.category%></td>
             <td><%= vote.created_at.strftime("%m/%d/%Y")%></td>
           </tr>
