@@ -27,11 +27,12 @@ describe User do
   end
   describe 'relations' do
     it "can have multiple votes"  do 
+      
       work_one = Work.create(category: "album", title: "Blue Breaker", creator: "Dr. Sarai Langosh", publication_year: "1949", description: "Et et expedita non aut quo.")
       work_two = Work.create(category: "book", title: "Postmodern Blend", creator: "Dr. Sarai Langosh", publication_year: "1949", description: "Et et expedita non aut quo.")
       vote_one = Vote.create(work_id: work_one.id, user_id: @user.id)
       vote_two = Vote.create(work_id: work_two.id, user_id: @user.id)
-      expect(@user.votes.length).must_equal 2
+      expect(@user.votes.size).must_equal 2
     end 
   end 
 end 

@@ -56,7 +56,6 @@ class UsersController < ApplicationController
     if @user.nil? 
       redirect_to root_path
       flash[:error] = "You must be logged in to view this page"
-      
       return 
     end 
   end

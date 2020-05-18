@@ -17,6 +17,7 @@ class Work < ApplicationRecord
   def create_new_vote(user_id)  
     return new_vote = Vote.create(user_id: user_id, work_id: self.id) 
   end
+  
   def self.highest_voted 
     max = Work.first
     Work.all.each do |work|
