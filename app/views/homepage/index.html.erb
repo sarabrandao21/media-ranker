@@ -3,15 +3,20 @@
   "Top Books" => "book", 
   "Top Albums" => "album"
   }%>
+  
 <%highest_voted = Work.highest_voted%>
 <main>
   <section class="spotlight">
     <h2 class="spotlight__header">
+    <%if highest_voted.nil?%>
+      Media Spotlight: There is no media in this rank
+    <%else%>
       Media Spotlight: <%= highest_voted.title %>
       <small><%=highest_voted.votes.length%> votes</small>
       <p>
       <small><%=highest_voted.description%></small>
       </p>
+      <%end%>
     </h2>
   </section>
   <% types.each do |title, type|%>

@@ -59,4 +59,20 @@ describe Work do
       expect(user_one.votes.length).must_equal 1 
     end 
   end 
+  describe "highest voted" do 
+    it "return the highest voted" do 
+      
+      @new_work.save
+      user_one = User.create(username: "benilsen")
+      user_two = User.create(username: "saranilsen")
+      vote_one = Vote.create(work_id: @new_work.id, user_id: user_one.id)
+      vote_two = Vote.create(work_id: @new_work.id, user_id: user_two.id)
+      highest_voted = Work.highest_voted()
+      expect(highest_voted.id).must_equal @new_work.id
+    end 
+    it "handles when there is no votes" do 
+      highest_voted = Work.highest_voted()
+      expect(highest_voted.nil?).must_equal false
+    end 
+  end 
 end 
