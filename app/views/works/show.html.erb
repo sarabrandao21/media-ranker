@@ -14,5 +14,25 @@
     <%= "Upvote"%>
      <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"} %>
   </section>
+  <section>
+    <h3><%=@work.votes.length%> Votes for this Album</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+        <body>
+          <% @work.votes.each do |vote|%>
+            <tr>
+              <%user = User.find_by(id: vote.user_id)%>
+              <td><%= user.username%> </td>
+              <td><%= user.created_at.strftime("%m/%d/%Y")%></td>
+            </tr>
+          <%end%>
+        </body>
+      </thead>
+    </table>
+  </section>
 </main>
 
