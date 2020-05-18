@@ -3,11 +3,15 @@
   "Top Books" => "book", 
   "Top Albums" => "album"
   }%>
-
+<%highest_voted = Work.highest_voted%>
 <main>
   <section class="spotlight">
     <h2 class="spotlight__header">
-      Media Spotlight: <%= %>
+      Media Spotlight: <%= highest_voted.title %>
+      <small><%=highest_voted.votes.length%> votes</small>
+      <p>
+      <small><%=highest_voted.description%></small>
+      </p>
     </h2>
   </section>
   <% types.each do |title, type|%>

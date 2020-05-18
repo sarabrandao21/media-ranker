@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :votes 
+  has_many :votes, dependent: :delete_all 
   validates :title, presence: true, uniqueness: true 
   
   
@@ -17,7 +17,15 @@ class Work < ApplicationRecord
   def create_new_vote(user_id)  
     return new_vote = Vote.create(user_id: user_id, work_id: self.id) 
   end
-  
+  def self.highest_voted 
+    max = Work.first
+    Work.all.each do |work|
+      if work.votes.length > max.votes.length
+        max = work 
+      end 
+    end 
+    return max
+  end 
 end 
 
 
