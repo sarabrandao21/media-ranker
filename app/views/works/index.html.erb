@@ -6,7 +6,7 @@
 }%>
 
 <% types.each do |title, category|  %>
-  <section>
+  <section class="media-table">
     <h4><%=title%></h4>
     <table class="table">
       <thead>
@@ -43,9 +43,9 @@
   </section>
  <%end%>
 
- <section class="button">
-  <h3><%= link_to "View top media", root_path %></h3>
-  <h3><%= link_to "Add a New Work", new_work_path %></h3>
+  <%= link_to 'View top media', root_path, class: "btn btn-secondary" %>
+  <%= link_to 'Add a new work', new_work_path, class: "btn btn-primary" %>
+
 </section>
 
 

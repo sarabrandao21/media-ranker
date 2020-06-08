@@ -9,12 +9,12 @@
   <section class="spotlight">
     <h2 class="spotlight__header">
       <%if highest_voted.nil?%>
-        <span class="spotlight__header--prefix">Media Spotlight:</span>
+        <span class="spotlight__header--prefix">Media Spotlight</span>
         <span>There is no media in this rank</span>
         </h2>
       <%else%>
          <h2 class="spotlight__header">
-            <span class="spotlight__header--prefix">Media Spotlight:</span> 
+            <span class="spotlight__header--prefix">Media Spotlight</span> 
         <%= link_to highest_voted.title, work_path(highest_voted.id), class: "spotlight__link-to"%>
         </h2>
         <p class="spotlight__description">

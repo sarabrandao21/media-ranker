@@ -1,18 +1,12 @@
 <main>
-  <section>
-    <h2>
-      User Summary: <%= @user.username %>
-    </h2>
-  
-  </section>
-  <section>
-   <%= link_to "Back to media ranks", root_path %>
-   <%= link_to "See all users", users_path%>
-  </section>
-  <section>
-    <h3><%=@user.votes.length%> Votes for this Album</h3>
-    <table>
-      <thead>
+  <h2>User Summary: <%= link_to @user.username, user_path(@user.id) %> </h2>
+  <p>Joined site  <%= @user.created_at.strftime("%b %d, %Y") %> </p>
+
+
+   <section class="user-votes__container">
+    <h3 class="user-votes__header">Votes</h3>
+    <table class="table">
+     <thead>
         <tr>
           <th>Media Title</th>
           <th>Created by</th>
@@ -20,7 +14,8 @@
           <th>Category</th>
           <th>Voted on</th>
         </tr>
-        <body>
+      </thead>
+        <tbody>
           
           <% @user.votes.each do |vote|%>
           <tr>
@@ -34,8 +29,9 @@
           <%end%>
    
           
-        </body>
-      </thead>
+        </tbody>
     </table>
   </section>
+    <%= link_to 'See All Users', users_path, class: "btn btn-secondary" %>
+    <%= link_to 'Back to Media List', root_path, class: "btn btn-primary" %>
 </main>
