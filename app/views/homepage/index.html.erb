@@ -9,20 +9,24 @@
   <section class="spotlight">
     <h2 class="spotlight__header">
       <%if highest_voted.nil?%>
-        Media Spotlight: There is no media in this rank
+        <span class="spotlight__header--prefix">Media Spotlight:</span>
+        <span>There is no media in this rank</span>
+        </h2>
       <%else%>
-        Media Spotlight: <%= link_to highest_voted.title, work_path(highest_voted.id)%>
-        <small><%=highest_voted.votes.length%> votes</small>
-        <p>
-        <small><%=highest_voted.description%></small>
+         <h2 class="spotlight__header">
+            <span class="spotlight__header--prefix">Media Spotlight:</span> 
+        <%= link_to highest_voted.title, work_path(highest_voted.id), class: "spotlight__link-to"%>
+        </h2>
+        <p class="spotlight__description">
+          <%=highest_voted.votes.length%> -votes <%=highest_voted.description%>
         </p>
       <%end%>
-    </h2>
   </section>
+
+  <hr class="root__hr">
+  <section class="top-ten__container">
   <% types.each do |title, type|%>
-    <hr class="root__hr">
-    <section class="top-ten__container">
-      <section class="top-ten__header">
+      <section class="top-ten__list-container">
         <h2 class="top-ten__header">
           <%= type %>
         </h2>
@@ -35,7 +39,7 @@
           <%else%>
             <%list_work.each do |work|%>
               <%= link_to work.title, work_path(work.id)%>
-            <small>
+            <small class="top-ten__creator">
               <%=work.creator%>
             </small>
             <p><%=work.votes.length%></p>
@@ -45,6 +49,6 @@
           </li>
         </ul>
       </section>
-    </section>
   <%end%>
+  </section>
 </main>
